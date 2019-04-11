@@ -20,7 +20,7 @@
 				</nav>
 				<a href="index.html" class="logo">intensify</a>
 				<nav class="right">
-					<a href="#" class="button alt">Log in</a>
+					<a href="#" class="button alt" onclick="loginFormShowup()">Log in</a>
 				</nav>
 			</header>
 
@@ -32,9 +32,29 @@
 					<li><a href="elements.html">Elements</a></li>
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="#" class="button fit">Login</a></li>
+					<li><a href="#" class="button fit" id="loginButton">Login</a></li>
 				</ul>
 			</nav>
+
+		<!-- LoginForm -->
+			<section id="signinbox">
+				<div class="signinbox-wrapper">
+					<div class="fblightbox-header">
+						<h3>Welcome Back</h3>
+					</div>
+					<div class="fblightbox-content">
+						<form class="p-2" method="post" action="#">
+							<div class="12u 12u$(xsmall)">
+								<input type="text" name="name" id="name" value="" placeholder="Name or Email" />
+							</div>
+						</form>
+						<div class="p-2">
+							<a href="generic.html" id="loginSubmit" class="button special" margin = 10px >LOG IN</a>
+						</div>
+					</div>
+					
+				</div>
+			</section>
 
 		<!-- Banner -->
 			<section id="banner">
@@ -42,37 +62,8 @@
 					<h1>Ipsum sed lorem</h1>
 					<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod<br />sed arcu cras consecuat lorem ipsum dolor sit amet.</p>
 					<ul class="actions">
-						<li><a href="#one" class="button scrolly">Get Started</a></li>
+						<li><a href="#footer" class="button scrolly">Get Started</a></li>
 					</ul>
-				</div>
-			</section>
-
-		<!-- One -->
-			<section id="one" class="wrapper">
-				<div class="inner flex flex-3">
-					<div class="flex-item left">
-						<div>
-							<h3>Magna ultricies</h3>
-							<p>Morbi in sem quis dui plalorem ipsum<br /> euismod in, pharetra sed ultricies.</p>
-						</div>
-						<div>
-							<h3>Ipsum adipiscing lorem</h3>
-							<p>Tristique yonve cursus jam nulla quam<br /> loreipsu gravida adipiscing lorem</p>
-						</div>
-					</div>
-					<div class="flex-item image fit round">
-						<img src="images/pic01.jpg" alt="" />
-					</div>
-					<div class="flex-item right">
-						<div>
-							<h3>Tempus nullam</h3>
-							<p>Sed adipiscing ornare risus. Morbi estes<br /> blandit sit et amet, sagittis magna.</p>
-						</div>
-						<div>
-							<h3>Suscipit nibh dolore</h3>
-							<p>Pellentesque egestas sem. Suspendisse<br /> modo ullamcorper feugiat lorem.</p>
-						</div>
-					</div>
 				</div>
 			</section>
 
@@ -128,62 +119,52 @@
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
-					<h2>Get In Touch</h2>
+					<h2>Join us</h2>
 					<form method="post" action="#">
-										<div class="row uniform">
-											<div class="6u 12u$(xsmall)">
-												<input type="text" name="name" id="name" value="" placeholder="Name" />
-											</div>
-											<div class="6u$ 12u$(xsmall)">
-												<input type="email" name="email" id="email" value="" placeholder="Email" />
-											</div>
-											<!-- Break -->
-											<div class="12u$">
-												<div class="select-wrapper">
-													<select name="category" id="category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-												</div>
-											</div>
-											<!-- Break -->
-											<div class="4u 12u$(small)">
-												<input type="radio" id="priority-low" name="priority" checked>
-												<label for="priority-low">Low Priority</label>
-											</div>
-											<div class="4u 12u$(small)">
-												<input type="radio" id="priority-normal" name="priority">
-												<label for="priority-normal">Normal Priority</label>
-											</div>
-											<div class="4u$ 12u$(small)">
-												<input type="radio" id="priority-high" name="priority">
-												<label for="priority-high">High Priority</label>
-											</div>
-											<!-- Break -->
-											<div class="6u 12u$(small)">
-												<input type="checkbox" id="copy" name="copy">
-												<label for="copy">Email me a copy of this message</label>
-											</div>
-											<div class="6u$ 12u$(small)">
-												<input type="checkbox" id="human" name="human" checked>
-												<label for="human">I am a human and not a robot</label>
-											</div>
-											<!-- Break -->
-											<div class="12u$">
-												<textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-											<!-- Break -->
-											<div class="12u$">
-												<ul class="actions">
-													<li><input type="submit" value="Send Message" /></li>
-													<li><input type="reset" value="Reset" class="alt" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
+						<div class="row uniform">
+							<div class="6u 12u$(xsmall)">
+								<input type="text" name="name" id="name" value="" placeholder="Name" />
+							</div>
+							<div class="6u$ 12u$(xsmall)">
+								<input type="email" name="email" id="email" value="" placeholder="Email" />
+							</div>
+							<!-- Break -->
+							<div class="12u$">
+								<div class="select-wrapper">
+									<select name="category" id="category">
+										<option value="">- Category -</option>
+										<option value="1">Manufacturing</option>
+										<option value="1">Shipping</option>
+										<option value="1">Administration</option>
+										<option value="1">Human Resources</option>
+									</select>
+								</div>
+							</div>
+							<!-- Break -->
+							<!-- <div class="4u 12u$(small)">
+								<input type="radio" id="priority-low" name="priority" checked>
+								<label for="priority-low">Low Priority</label>
+							</div>
+							<div class="4u 12u$(small)">
+								<input type="radio" id="priority-normal" name="priority">
+								<label for="priority-normal">Normal Priority</label>
+							</div>
+							<div class="4u$ 12u$(small)">
+								<input type="radio" id="priority-high" name="priority">
+								<label for="priority-high">High Priority</label>
+							</div> -->
+							<!-- Break -->
+							<div class="12u$">
+								<textarea name="message" id="message" placeholder="Any concern or questions? Feel free to tell uw" rows="3"></textarea>
+							</div>
+							<!-- Break -->
+							<div class="12u$">
+								<ul class="actions">
+									<li><input type="submit" value="SIGN IN" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
 
 
 					<!-- <h2>Get In Touch</h2>
@@ -199,11 +180,24 @@
 			</footer>
 
 		<!-- Scripts -->
+
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				function loginFormShowup() {
+				  var x = document.getElementById("signinbox");
+				  console.log(typeof x)
+				  console.log(x.style.display);
+				  if (x.style.display == "none") {
+				    x.style.display = "block";
+				  } else {
+				    x.style.display = "none";
+				  }
+				}
+			</script>
 
 	</body>
 </html>
