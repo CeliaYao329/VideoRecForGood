@@ -9,6 +9,8 @@
     <title>Personal info</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!--<link rel="stylesheet" href="assets/css/main.css"/>-->
     <link rel="stylesheet" href="assets/css/progress.css"/>
 </head>
@@ -19,7 +21,7 @@
     <nav class="left">
         <a href="#menu"><span>Menu</span></a>
     </nav>
-    <a href="index.html" class="logo">intensify</a>
+    <a href="index.html" class="logo">Video Rec for Good</a>
     <nav class="right">
         <a href="#" class="button alt">Log in</a>
     </nav>
@@ -27,33 +29,50 @@
 
 <!-- MultiStep Form -->
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-12 col-md-offset-3">
         <form id="msform">
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active">First Survey</li>
                 <li>Social Profiles</li>
-                <li>Account Setup</li>
-                <li>Test</li>
+                <li>Experiment Phase</li>
+                <li>Second Survey</li>
+                <li>Final Step</li>
             </ul>
             <!-- fieldsets -->
             <fieldset>
-                <h2 class="fs-title">Personal Details</h2>
+                <h2 class="fs-title">Take-out Upload</h2>
                 <h3 class="fs-subtitle">Tell us something more about you</h3>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeZlEBn_gIq9qb_LUNpCVHw12CMHQL4RJb338YIHhL9KLlusg/viewform?embedded=true" width="1000" height="943" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeZlEBn_gIq9qb_LUNpCVHw12CMHQL4RJb338YIHhL9KLlusg/viewform?embedded=true" width="1000" height="400" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
                 <input type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>
             <fieldset>
-                <h2 class="fs-title">Social Profiles</h2>
+                <h2 class="fs-title">Second Survey</h2>
                 <h3 class="fs-subtitle">Your presence on the social network</h3>
-                <input type="text" name="twitter" placeholder="Twitter"/>
-                <input type="text" name="facebook" placeholder="Facebook"/>
-                <input type="text" name="gplus" placeholder="Google Plus"/>
+                <div class="input-group mb-3">
+                  <!--<div class="input-group-prepend">-->
+                    <!--<span class="input-group-text">Upload</span>-->
+                  <!--</div>-->
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+                <!--<input type="file" name="pic" accept="image/*">-->
                 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                 <input type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>
             <fieldset>
-                <h2 class="fs-title">Create your account</h2>
+                <h2 class="fs-title">Take-out Upload</h2>
+                <h3 class="fs-subtitle">Fill in your credentials</h3>
+                <input type="text" name="email" placeholder="Email"/>
+                <input type="password" name="pass" placeholder="Password"/>
+                <input type="password" name="cpass" placeholder="Confirm Password"/>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Take-out Upload</h2>
                 <h3 class="fs-subtitle">Fill in your credentials</h3>
                 <input type="text" name="email" placeholder="Email"/>
                 <input type="password" name="pass" placeholder="Password"/>
@@ -171,5 +190,47 @@ $(".submit").click(function(){
 	return false;
 })
 </script>
+
+<script>
+    function bs_input_file() {
+	$(".input-file").before(
+		function() {
+			if ( ! $(this).prev().hasClass('input-ghost') ) {
+				var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+				element.attr("name",$(this).attr("name"));
+				element.change(function(){
+					element.next(element).find('input').val((element.val()).split('\\').pop());
+				});
+				$(this).find("button.btn-choose").click(function(){
+					element.click();
+				});
+				$(this).find("button.btn-reset").click(function(){
+					element.val(null);
+					$(this).parents(".input-file").find('input').val('');
+				});
+				$(this).find('input').css("cursor","pointer");
+				$(this).find('input').mousedown(function() {
+					$(this).parents('.input-file').prev().click();
+					return false;
+				});
+				return element;
+			}
+		}
+	);
+}
+$(function() {
+	bs_input_file();
+});
+</script>
+
+<script>
+    // upload file name appears in the box
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+
 </body>
 </html>
