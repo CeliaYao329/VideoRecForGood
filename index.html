@@ -171,7 +171,7 @@
                 </div>
                 <!-- Break -->
                 <div class="col-sm-12 justify-content-md-center">
-                    <a class="actions button" onclick="consentShowUp()">Sign In</a>
+                    <a class="actions button alt" onclick="consentShowUp()">Sign In</a>
                 </div>
             </div>
         </form>
@@ -249,6 +249,7 @@
         <p><b>I have read the above information, and have received answers to any questions I asked. I consent to take
             part in the study.</b></p>
         <button id="accept" onclick="acceptConsent()">Accept</button>
+        <button class = "button alt" id="decline" onclick="backToIndex()">Cancel</button>
     </div>
 </div>
 
@@ -286,6 +287,10 @@
     function acceptConsent() {
         document.querySelector("#overlay").style.visibility = "hidden";
         window.location.href = "generic.html";
+    };
+    function backToIndex() {
+        document.querySelector("#overlay").style.visibility = "hidden";
+        window.location.href = "index.html";
     };
 </script>
 
